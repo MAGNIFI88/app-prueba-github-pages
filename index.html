@@ -1,25 +1,145 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Mini App</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f9; }
-        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px; }
-        button:hover { background: #0056b3; }
-    </style>
+    <meta name="theme-color" content="#f8f3ed">
+    <meta name="description" content="Hay planes que merecen organizarse. ¿Quedamos?">
+    <title>¿Quedamos? — Una invitación especial</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>¡Hola! Bienvenido a mi Mini App</h1>
-    <p>Desplegada con éxito en GitHub Pages.</p>
-    <button onclick="saludar()">Haz clic aquí</button>
-    <p id="mensaje"></p>
 
-    <script>
-        function saludar() {
-            document.getElementById("mensaje").innerText = "¡Gracias por interactuar con la app! 🚀";
-        }
-    </script>
+    <main class="container">
+
+        <header class="hero">
+            <span class="eyebrow">UNA PROPUESTA ESPECIAL</span>
+            <h1>¿Y si nos<br><span>vemos?</span></h1>
+            <p class="intro">
+                Hay conversaciones que merecen continuar en persona.
+                Así que he pensado que podríamos organizar algo.
+            </p>
+            <div class="decoration">✳</div>
+        </header>
+
+        <section class="invitation">
+            <h2>Organicemos el plan</h2>
+            <p class="section-description">
+                Rellena estos pequeños detalles y buscaremos
+                el momento perfecto para quedar.
+            </p>
+
+            <form id="dateForm">
+
+                <div class="form-group">
+                    <label for="name">¿Cómo te llamas?</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Tu nombre"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">¿Dónde puedo contactarte?</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Tu correo electrónico"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="plan">¿Qué tipo de plan te apetece?</label>
+                    <select id="plan" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="Un café tranquilo">Un café tranquilo</option>
+                        <option value="Una comida o cena">Una comida o cena</option>
+                        <option value="Un paseo">Un paseo</option>
+                        <option value="Una copa">Una copa</option>
+                        <option value="Una actividad diferente">Una actividad diferente</option>
+                        <option value="Me dejo sorprender">Me dejo sorprender</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">¿En qué zona te viene bien?</label>
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Ciudad, barrio o zona"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">¿Qué día?</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">¿A qué hora?</label>
+                        <input type="time" id="time" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget">¿Qué presupuesto te parece bien?</label>
+                    <select id="budget">
+                        <option value="Sin preferencias">Sin preferencias</option>
+                        <option value="Menos de 15 €">Menos de 15 €</option>
+                        <option value="Entre 15 y 30 €">Entre 15 y 30 €</option>
+                        <option value="Entre 30 y 50 €">Entre 30 y 50 €</option>
+                        <option value="Más de 50 €">Más de 50 €</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">¿Alguna sugerencia o petición especial?</label>
+                    <textarea
+                        id="notes"
+                        rows="3"
+                        placeholder="Un sitio que te gustaría visitar, algo que quieras hacer..."
+                    ></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="flexible">
+                    <label for="flexible">
+                        Soy flexible con la fecha y la hora.
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    Enviar mi propuesta <span>→</span>
+                </button>
+
+            </form>
+
+            <div id="result" class="result hidden" aria-live="polite">
+                <div class="success-icon">✓</div>
+                <h2>¡Propuesta preparada!</h2>
+                <p>Estos son los detalles de tu plan:</p>
+                <div id="summary" class="summary"></div>
+                <button type="button" id="copyButton" class="copy-button">
+                    Copiar propuesta
+                </button>
+                <p class="small-note">
+                    Ahora solo queda ponerse de acuerdo.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Hecho con intención. Y con ganas de quedar.</p>
+            <span>✳</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
